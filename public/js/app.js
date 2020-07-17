@@ -29,21 +29,20 @@ weatherForm.addEventListener("submit", (e) => {
   if (!location) {
     console.log("Provide valid location");
   } else {
-    fetch(`http://localhost:3000/weather?address=${location}`).then(
-      (response) => {
-        response.json().then((data) => {
-          if (data.error) {
-            msgOne.textContent = data.error;
-          } else {
-            msgOne.textContent = data.location;
-            msgTwo.textContent = `Temperature is \n ${data.temp} ℃`;
-            msgThree.textContent = `Chance of Rain\n ${data.rain}%`;
-            console.log(data.location);
-            console.log(data.temp);
-            console.log(data.rain);
-          }
-        });
-      }
-    );
+    //http://localhost:3000
+    fetch(`/weather?address=${location}`).then((response) => {
+      response.json().then((data) => {
+        if (data.error) {
+          msgOne.textContent = data.error;
+        } else {
+          msgOne.textContent = data.location;
+          msgTwo.textContent = `Temperature is \n ${data.temp} ℃`;
+          msgThree.textContent = `Chance of Rain\n ${data.rain}%`;
+          console.log(data.location);
+          console.log(data.temp);
+          console.log(data.rain);
+        }
+      });
+    });
   }
 });

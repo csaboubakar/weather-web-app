@@ -5,7 +5,7 @@ const express = require("express");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Define path for express config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -19,8 +19,6 @@ hbs.registerPartials(partialsPath);
 
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
-
-app.listen(port, () => console.log(`Example app listening on port port!`));
 
 app.get("/about", (req, res) => {
   res.render("about", {
@@ -92,3 +90,5 @@ app.get("*", (req, res) => {
     errorMessage: "Page Not Found.",
   });
 });
+
+app.listen(port, () => console.log(`Weather app listening on port ${port}!`));
