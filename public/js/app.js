@@ -35,32 +35,30 @@ weatherForm.addEventListener("submit", (e) => {
     console.log("Provide valid location");
   } else {
     //http://localhost:3000
-    fetch(`http://localhost:3000/weather?address=${location}`).then(
-      (response) => {
-        response.json().then((data) => {
-          if (data.error) {
-            msgOne.textContent = data.error;
-          } else {
-            myLocation.textContent = data.location;
-            temp.textContent = `${data.temp} ℃ ${data.main}`;
-            rain.textContent = `Perception: ${data.rain}%`;
-            humidity.textContent = `Humidity: ${data.humidity}%`;
-            minTemp.textContent = `Low: ${data.temp_min}℃`;
-            maxTemp.textContent = `High: ${data.temp_max}℃`;
-            wind.textContent = `Wind: ${data.wind}mph`;
-            dateNow.textContent = `${date}`;
-            console.log(data);
-            console.log(data.location);
-            console.log(data.temp);
-            console.log(data.rain);
-            console.log(data.humidity);
-            console.log(data.temp_min);
-            console.log(data.temp_max);
-            console.log(data.wind);
-            console.log(date);
-          }
-        });
-      }
-    );
+    fetch(`/weather?address=${location}`).then((response) => {
+      response.json().then((data) => {
+        if (data.error) {
+          msgOne.textContent = data.error;
+        } else {
+          myLocation.textContent = data.location;
+          temp.textContent = `${data.temp} ℃ ${data.main}`;
+          rain.textContent = `Perception: ${data.rain}%`;
+          humidity.textContent = `Humidity: ${data.humidity}%`;
+          minTemp.textContent = `Low: ${data.temp_min}℃`;
+          maxTemp.textContent = `High: ${data.temp_max}℃`;
+          wind.textContent = `Wind: ${data.wind}mph`;
+          dateNow.textContent = `${date}`;
+          console.log(data);
+          console.log(data.location);
+          console.log(data.temp);
+          console.log(data.rain);
+          console.log(data.humidity);
+          console.log(data.temp_min);
+          console.log(data.temp_max);
+          console.log(data.wind);
+          console.log(date);
+        }
+      });
+    });
   }
 });
