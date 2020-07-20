@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 
-<body class="main">
+<body>
     <header>
         {{>header}}
     </header>
@@ -18,15 +18,25 @@
             <input type="text" placeholder="Location">
             <button type="submit">Search</button>
         </form>
+        <div class="temp">
+            <p id="message-2"></p>
+        </div>
         <div class="location">
             <p id="message-1"></p>
         </div>
-        <div class="temp">
-            <p id="message-2"></p>
+        <div class="date">
+            <p id="message-6"></p>
         </div>
         <div class="rain">
             <p id="message-3"></p>
         </div>
+        <div class="humidity">
+            <p id="message-4"></p>
+        </div>
+        <div class="main">
+            <p id="message-5"></p>
+        </div>
+
     </div>
     <footer>
         {{>footer}}

@@ -56,20 +56,26 @@ app.get("/weather", (req, res) => {
           error,
         });
       } else {
-        forecast(latitude, longitude, (error, { temp, rain } = {}) => {
-          if (error) {
-            return res.send({
-              error,
-            });
-          } else {
-            res.send({
-              location: location,
-              temp: temp,
-              rain: rain,
-              address: address,
-            });
+        forecast(
+          latitude,
+          longitude,
+          (error, { temp, rain, humidity, main } = {}) => {
+            if (error) {
+              return res.send({
+                error,
+              });
+            } else {
+              res.send({
+                location: location,
+                temp: temp,
+                rain: rain,
+                address: address,
+                humidity: humidity,
+                main: main,
+              });
+            }
           }
-        });
+        );
       }
     });
   }

@@ -12,6 +12,8 @@ const forecast = (lat, lan, callback) => {
       callback(undefined, {
         temp: response.body.main.temp,
         rain: response.body.clouds.all,
+        humidity: response.body.main.humidity,
+        main: response.body.weather[0].main,
       });
     }
   });
